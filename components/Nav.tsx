@@ -1,24 +1,27 @@
 'use client'
 import Container from '@/components/Container'
-
 import { useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { IconMenu2, IconX } from '@tabler/icons-react'
 
 const navLinks = [
-  { label: 'About',    href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Pricing',  href: '#pricing' },
+  { label: 'About',    href: '/about' },
+  { label: 'Services', href: '/services' },
+  { label: 'Pricing',  href: '/pricing' },
 ]
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
+  const pathname = usePathname()
+
+  const isActive = (href: string) => pathname === href
 
   return (
     <header className="w-full bg-paper border-b border-forest/12 relative z-50">
       <Container className="flex items-center justify-between py-[26px]">
 
         {/* Wordmark */}
-        <a href="#" className="no-underline">
+        <a href="/" className="no-underline">
           <span className="block font-serif text-[22px] font-semibold text-forest leading-none tracking-[-0.01em]">
             MOPACS
           </span>
@@ -33,14 +36,22 @@ export default function Nav() {
             <a
               key={l.label}
               href={l.href}
-              className="text-[13px] font-medium text-forest no-underline hover:text-green transition-colors duration-[180ms]"
+              className={`text-[13px] font-medium no-underline transition-colors duration-[180ms] ${
+                isActive(l.href)
+                  ? 'text-green underline underline-offset-[5px] decoration-1 decoration-green/60'
+                  : 'text-forest hover:text-green'
+              }`}
             >
               {l.label}
             </a>
           ))}
           <a
-            href="#contact"
-            className="text-[13px] font-medium text-forest no-underline px-[20px] py-[10px] rounded-full border border-forest hover:bg-forest hover:text-paper transition-all duration-[180ms] whitespace-nowrap"
+            href="/contact"
+            className={`text-[13px] font-medium no-underline px-[20px] py-[10px] rounded-full border transition-all duration-[180ms] ${
+              isActive('/contact')
+                ? 'bg-forest text-paper border-forest'
+                : 'text-forest border-forest hover:bg-forest hover:text-paper'
+            }`}
           >
             Contact
           </a>
@@ -58,20 +69,27 @@ export default function Nav() {
 
       {/* Mobile dropdown */}
       {open && (
-        <div className="sm:hidden bg-paper border-t border-forest/12 py-6 flex flex-col gap-5" style={{ paddingLeft: 'clamp(24px,5vw,80px)', paddingRight: 'clamp(24px,5vw,80px)' }}>
+        <div
+          className="sm:hidden bg-paper border-t border-forest/12 py-6 flex flex-col gap-5"
+          style={{ paddingLeft: 'clamp(24px,5vw,80px)', paddingRight: 'clamp(24px,5vw,80px)' }}
+        >
           {navLinks.map((l) => (
             <a
               key={l.label}
               href={l.href}
-              className="text-[15px] font-medium text-forest no-underline"
+              className={`text-[15px] font-medium no-underline ${
+                isActive(l.href) ? 'text-green' : 'text-forest'
+              }`}
               onClick={() => setOpen(false)}
             >
               {l.label}
             </a>
           ))}
           <a
-            href="#contact"
-            className="text-[15px] font-medium text-forest no-underline"
+            href="/contact"
+            className={`text-[15px] font-medium no-underline ${
+              isActive('/contact') ? 'text-green' : 'text-forest'
+            }`}
             onClick={() => setOpen(false)}
           >
             Contact

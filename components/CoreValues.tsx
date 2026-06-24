@@ -1,33 +1,44 @@
 import Container from '@/components/Container'
-const values = [
+
+export interface CoreValue {
+  idx:   string
+  title: string
+  desc:  string
+}
+
+const defaultValues: CoreValue[] = [
   {
-    idx: '01',
+    idx:   '01',
     title: 'Commitment to Sustainability',
-    desc: 'We integrate ESG principles into every facet, guiding clients toward the Sustainable Development Goals.',
+    desc:  'We integrate ESG principles into every facet, guiding clients toward the Sustainable Development Goals.',
   },
   {
-    idx: '02',
+    idx:   '02',
     title: 'Biodiversity & Community Harmony',
-    desc: 'Minimizing wildlife and human conflict, enhancing ecological balance and community coexistence.',
+    desc:  'Minimizing wildlife and human conflict, enhancing ecological balance and community coexistence.',
   },
   {
-    idx: '03',
+    idx:   '03',
     title: 'Innovation for Impact',
-    desc: 'Advanced solutions and operational cost reviews, driving productivity and efficiency in management.',
+    desc:  'Advanced solutions and operational cost reviews, driving productivity and efficiency in management.',
   },
   {
-    idx: '04',
+    idx:   '04',
     title: 'Dedication to Safety',
-    desc: 'A safe, healthy working environment through comprehensive safety and health assessment.',
+    desc:  'A safe, healthy working environment through comprehensive safety and health assessment.',
   },
   {
-    idx: '05',
+    idx:   '05',
     title: 'Integrity in Action',
-    desc: 'Operating with transparency and accountability, fostering trust and long-term relationships.',
+    desc:  'Operating with transparency and accountability, fostering trust and long-term relationships.',
   },
 ]
 
-export default function CoreValues() {
+interface Props {
+  values?: CoreValue[]
+}
+
+export default function CoreValues({ values = defaultValues }: Props) {
   return (
     <section className="w-full bg-paper pb-[64px] md:pb-[84px]">
       <Container>
@@ -36,7 +47,7 @@ export default function CoreValues() {
           Core Values
         </p>
 
-        {values.map((v, i) => (
+        {(values).map((v, i) => (
           <div
             key={v.idx}
             className={`
