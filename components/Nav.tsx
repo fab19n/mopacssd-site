@@ -1,0 +1,83 @@
+'use client'
+import Container from '@/components/Container'
+
+import { useState } from 'react'
+import { IconMenu2, IconX } from '@tabler/icons-react'
+
+const navLinks = [
+  { label: 'About',    href: '#about' },
+  { label: 'Services', href: '#services' },
+  { label: 'Pricing',  href: '#pricing' },
+]
+
+export default function Nav() {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <header className="w-full bg-paper border-b border-forest/12 relative z-50">
+      <Container className="flex items-center justify-between py-[26px]">
+
+        {/* Wordmark */}
+        <a href="#" className="no-underline">
+          <span className="block font-serif text-[22px] font-semibold text-forest leading-none tracking-[-0.01em]">
+            MOPACS
+          </span>
+          <span className="block font-mono text-[8px] tracking-[0.18em] uppercase text-sage mt-1">
+            Plantation Advisory
+          </span>
+        </a>
+
+        {/* Desktop nav */}
+        <nav className="hidden sm:flex items-center gap-[26px]">
+          {navLinks.map((l) => (
+            <a
+              key={l.label}
+              href={l.href}
+              className="text-[13px] font-medium text-forest no-underline hover:text-green transition-colors duration-[180ms]"
+            >
+              {l.label}
+            </a>
+          ))}
+          <a
+            href="#contact"
+            className="text-[13px] font-medium text-forest no-underline px-[20px] py-[10px] rounded-full border border-forest hover:bg-forest hover:text-paper transition-all duration-[180ms] whitespace-nowrap"
+          >
+            Contact
+          </a>
+        </nav>
+
+        {/* Mobile toggle */}
+        <button
+          className="sm:hidden p-2 -mr-2 text-forest"
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle navigation"
+        >
+          {open ? <IconX size={22} /> : <IconMenu2 size={22} />}
+        </button>
+      </Container>
+
+      {/* Mobile dropdown */}
+      {open && (
+        <div className="sm:hidden bg-paper border-t border-forest/12 py-6 flex flex-col gap-5" style={{ paddingLeft: 'clamp(24px,5vw,80px)', paddingRight: 'clamp(24px,5vw,80px)' }}>
+          {navLinks.map((l) => (
+            <a
+              key={l.label}
+              href={l.href}
+              className="text-[15px] font-medium text-forest no-underline"
+              onClick={() => setOpen(false)}
+            >
+              {l.label}
+            </a>
+          ))}
+          <a
+            href="#contact"
+            className="text-[15px] font-medium text-forest no-underline"
+            onClick={() => setOpen(false)}
+          >
+            Contact
+          </a>
+        </div>
+      )}
+    </header>
+  )
+}

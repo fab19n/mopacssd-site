@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --color-forest: #19281c;
+  --color-green:  #386035;
+  --color-sage:   #799252;
+  --color-mist:   #ccd8c0;
+  --color-paper:  #fffff9;
+  --color-gold:   #EFBF04;
+  --color-stone:  #e7e5df;
+}
+
+@theme inline {
+  /* Font stacks — referenced by font-serif / font-sans / font-mono utilities */
+  --font-serif: 'Newsreader', Georgia, serif;
+  --font-sans:  'DM Sans', system-ui, sans-serif;
+  --font-mono:  'Space Mono', monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+::selection { background: #EFBF04; color: #19281c; }
+
+body {
+  background-color: #fffff9;
+  color: #19281c;
+  -webkit-font-smoothing: antialiased;
+}
