@@ -2,24 +2,17 @@ import Container from '@/components/Container'
 
 export default function PricingHero() {
   return (
-    <section className="w-full bg-forest py-[80px] md:py-[104px]">
+    <section className="w-full bg-forest py-[48px] md:py-[64px]">
       <Container>
-        <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-gold mb-[20px] md:mb-[26px]">
+        <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-gold mb-[14px]">
           Pricing &amp; Engagement
         </p>
         <h1
           className="font-serif font-normal text-paper leading-[1.08] tracking-[-0.02em]"
-          style={{ fontSize: 'clamp(34px, 4.2vw, 62px)', maxWidth: '22ch' }}
+          style={{ fontSize: 'clamp(30px, 3.6vw, 52px)', maxWidth: '26ch' }}
         >
-          Transparent pricing. Measurable value.
+          Transparent pricing. Flexible engagements.
         </h1>
-        <p
-          className="font-sans text-[16px] md:text-[17px] leading-[1.7] mt-[24px] md:mt-[32px]"
-          style={{ color: 'rgba(204,216,192,0.82)', maxWidth: '54ch' }}
-        >
-          A flexible man-day engagement model designed around your land bank needs —
-          from single-day assessments to ongoing advisory partnerships.
-        </p>
       </Container>
     </section>
   )

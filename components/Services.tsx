@@ -110,7 +110,7 @@ export default function Services({ coreServicesBg = '#19281c' }: ServicesProps) 
 
         {/* Link to full services page */}
         <div
-          className="mt-[24px] md:mt-[32px] pt-[20px] md:pt-[24px]"
+          className="mt-[24px] md:mt-[32px] pt-[20px] md:pt-[24px] flex justify-end"
           style={{ borderTop: `1px solid ${dark ? 'rgba(204,216,192,0.12)' : 'rgba(25,40,28,0.08)'}` }}
         >
           <a

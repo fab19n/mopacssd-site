@@ -93,7 +93,7 @@ export default function Pricing() {
 
         {/* Link to full pricing page */}
         <div
-          className="mt-[24px] md:mt-[32px] pt-[20px] md:pt-[24px]"
+          className="mt-[24px] md:mt-[32px] pt-[20px] md:pt-[24px] flex justify-end"
           style={{ borderTop: '1px solid rgba(25,40,28,0.08)' }}
         >
           <a

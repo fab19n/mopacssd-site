@@ -4,23 +4,21 @@ import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { IconMenu2, IconX } from '@tabler/icons-react'
 
-const navLinks = [
-  { label: 'About',    anchor: '#about',    route: '/about' },
-  { label: 'Services', anchor: '#services', route: '/services' },
-  { label: 'Pricing',  anchor: '#pricing',  route: '/pricing' },
-]
-
 export default function Nav() {
   const [open, setOpen] = useState(false)
-  const pathname  = usePathname()
-  const isHome    = pathname === '/'
+  const pathname = usePathname()
+  const isHome   = pathname === '/'
 
-  // On homepage: anchor-scroll. On all other pages: real route.
-  const href = (l: typeof navLinks[0]) => isHome ? l.anchor : l.route
-  const contactHref = isHome ? '#contact' : '/contact'
+  // About / Services always go to their pages.
+  // Pricing anchors on the homepage only; routes everywhere else.
+  // Contact always goes to the contact page.
+  const navLinks = [
+    { label: 'About',    href: '/about' },
+    { label: 'Services', href: '/services' },
+    { label: 'Pricing',  href: isHome ? '#pricing' : '/pricing' },
+  ]
 
-  // Active state only applies on inner pages
-  const isActive = (route: string) => !isHome && pathname === route
+  const isActive = (href: string) => pathname === href
 
   return (
     <header className="w-full bg-paper border-b border-forest/12 relative z-50">
@@ -41,9 +39,9 @@ export default function Nav() {
           {navLinks.map((l) => (
             <a
               key={l.label}
-              href={href(l)}
+              href={l.href}
               className={`text-[13px] font-medium no-underline transition-colors duration-[180ms] ${
-                isActive(l.route)
+                isActive(l.href)
                   ? 'text-green underline underline-offset-[5px] decoration-1 decoration-green/60'
                   : 'text-forest hover:text-green'
               }`}
@@ -52,7 +50,7 @@ export default function Nav() {
             </a>
           ))}
           <a
-            href={contactHref}
+            href="/contact"
             className={`text-[13px] font-medium no-underline px-[20px] py-[10px] rounded-full border transition-all duration-[180ms] ${
               isActive('/contact')
                 ? 'bg-forest text-paper border-forest'
@@ -82,9 +80,9 @@ export default function Nav() {
           {navLinks.map((l) => (
             <a
               key={l.label}
-              href={href(l)}
+              href={l.href}
               className={`text-[15px] font-medium no-underline ${
-                isActive(l.route) ? 'text-green' : 'text-forest'
+                isActive(l.href) ? 'text-green' : 'text-forest'
               }`}
               onClick={() => setOpen(false)}
             >
@@ -92,7 +90,7 @@ export default function Nav() {
             </a>
           ))}
           <a
-            href={contactHref}
+            href="/contact"
             className={`text-[15px] font-medium no-underline ${
               isActive('/contact') ? 'text-green' : 'text-forest'
             }`}
