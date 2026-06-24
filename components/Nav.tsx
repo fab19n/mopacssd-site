@@ -5,16 +5,22 @@ import { usePathname } from 'next/navigation'
 import { IconMenu2, IconX } from '@tabler/icons-react'
 
 const navLinks = [
-  { label: 'About',    href: '/about' },
-  { label: 'Services', href: '/services' },
-  { label: 'Pricing',  href: '/pricing' },
+  { label: 'About',    anchor: '#about',    route: '/about' },
+  { label: 'Services', anchor: '#services', route: '/services' },
+  { label: 'Pricing',  anchor: '#pricing',  route: '/pricing' },
 ]
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
-  const pathname = usePathname()
+  const pathname  = usePathname()
+  const isHome    = pathname === '/'
 
-  const isActive = (href: string) => pathname === href
+  // On homepage: anchor-scroll. On all other pages: real route.
+  const href = (l: typeof navLinks[0]) => isHome ? l.anchor : l.route
+  const contactHref = isHome ? '#contact' : '/contact'
+
+  // Active state only applies on inner pages
+  const isActive = (route: string) => !isHome && pathname === route
 
   return (
     <header className="w-full bg-paper border-b border-forest/12 relative z-50">
@@ -35,9 +41,9 @@ export default function Nav() {
           {navLinks.map((l) => (
             <a
               key={l.label}
-              href={l.href}
+              href={href(l)}
               className={`text-[13px] font-medium no-underline transition-colors duration-[180ms] ${
-                isActive(l.href)
+                isActive(l.route)
                   ? 'text-green underline underline-offset-[5px] decoration-1 decoration-green/60'
                   : 'text-forest hover:text-green'
               }`}
@@ -46,7 +52,7 @@ export default function Nav() {
             </a>
           ))}
           <a
-            href="/contact"
+            href={contactHref}
             className={`text-[13px] font-medium no-underline px-[20px] py-[10px] rounded-full border transition-all duration-[180ms] ${
               isActive('/contact')
                 ? 'bg-forest text-paper border-forest'
@@ -76,9 +82,9 @@ export default function Nav() {
           {navLinks.map((l) => (
             <a
               key={l.label}
-              href={l.href}
+              href={href(l)}
               className={`text-[15px] font-medium no-underline ${
-                isActive(l.href) ? 'text-green' : 'text-forest'
+                isActive(l.route) ? 'text-green' : 'text-forest'
               }`}
               onClick={() => setOpen(false)}
             >
@@ -86,7 +92,7 @@ export default function Nav() {
             </a>
           ))}
           <a
-            href="/contact"
+            href={contactHref}
             className={`text-[15px] font-medium no-underline ${
               isActive('/contact') ? 'text-green' : 'text-forest'
             }`}

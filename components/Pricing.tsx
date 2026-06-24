@@ -91,6 +91,20 @@ export default function Pricing() {
           ))}
         </div>
 
+        {/* Link to full pricing page */}
+        <div
+          className="mt-[24px] md:mt-[32px] pt-[20px] md:pt-[24px]"
+          style={{ borderTop: '1px solid rgba(25,40,28,0.08)' }}
+        >
+          <a
+            href="/pricing"
+            className="inline-flex items-center font-sans text-[13px] font-medium text-forest no-underline px-[20px] py-[10px] rounded-full transition-all duration-[180ms] hover:bg-forest hover:text-paper"
+            style={{ border: '1px solid rgba(25,40,28,0.25)' }}
+          >
+            View full pricing &amp; engagement details →
+          </a>
+        </div>
+
       </Container>
     </section>
   )
