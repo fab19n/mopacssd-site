@@ -33,7 +33,7 @@ export default function Hero() {
 
           <div className="flex gap-[14px] flex-wrap flex-shrink-0">
             <a
-              href="#contact"
+              href="/contact"
               className="inline-block bg-gold text-forest font-sans font-bold text-[14px] px-[30px] py-[15px] rounded-full whitespace-nowrap hover:brightness-95 transition-all duration-[180ms]"
             >
               Book an assessment

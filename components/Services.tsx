@@ -108,6 +108,23 @@ export default function Services({ coreServicesBg = '#19281c' }: ServicesProps) 
           ))}
         </div>
 
+        {/* Link to full services page */}
+        <div
+          className="mt-[24px] md:mt-[32px] pt-[20px] md:pt-[24px] flex justify-end"
+          style={{ borderTop: `1px solid ${dark ? 'rgba(204,216,192,0.12)' : 'rgba(25,40,28,0.08)'}` }}
+        >
+          <a
+            href="/services"
+            className="inline-flex items-center font-sans text-[13px] font-medium no-underline px-[20px] py-[10px] rounded-full transition-all duration-[180ms]"
+            style={{
+              color:   text,
+              border:  `1px solid ${dark ? 'rgba(204,216,192,0.3)' : 'rgba(25,40,28,0.25)'}`,
+            }}
+          >
+            View all services →
+          </a>
+        </div>
+
       </Container>
     </section>
   )
