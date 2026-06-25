@@ -10,19 +10,19 @@ export default function ServicesHero() {
       padding: '80px clamp(24px,5vw,80px) 104px',
     }}>
       <img
-        src="/images/plantation-tractor.avif"
+        src="/images/palm-fronds-bg.avif"
         alt=""
         aria-hidden="true"
         style={{
           position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
           width: '100%', height: '100%',
-          objectFit: 'cover', opacity: 0.28,
+          objectFit: 'cover', opacity: 0.32,
           pointerEvents: 'none',
         }}
       />
       <div style={{
         position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-        background: 'linear-gradient(to right, rgba(25,40,28,0.78) 45%, rgba(25,40,28,0.5) 100%)',
+        background: 'linear-gradient(to right, rgba(25,40,28,0.92) 45%, rgba(25,40,28,0.5) 100%)',
         pointerEvents: 'none',
       }} />
       <div style={{ position: 'relative', zIndex: 1 }}>

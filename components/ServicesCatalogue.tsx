@@ -81,7 +81,7 @@ export default function ServicesCatalogue() {
         overflow: 'hidden', position: 'relative',
       }}>
         <img
-          src="/images/wildlife-plantation.avif"
+          src="/images/plantation-tractor.avif"
           alt="Plantation machinery at work"
           style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 50%' }}
         />
@@ -123,11 +123,7 @@ export default function ServicesCatalogue() {
           Six practice areas. Twenty specialist services.
         </h2>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3,1fr)',
-          gap: 16,
-        }}>
+        <div className="services-cat-grid">
           {categories.map(({ idx, title, tagline, items }) => (
             <div
               key={idx}

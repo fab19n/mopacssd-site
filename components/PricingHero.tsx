@@ -16,13 +16,13 @@ export default function PricingHero() {
         style={{
           position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
           width: '100%', height: '100%',
-          objectFit: 'cover', opacity: 0.28,
+          objectFit: 'cover', opacity: 0.22,
           pointerEvents: 'none',
         }}
       />
       <div style={{
         position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-        background: 'linear-gradient(to bottom, rgba(25,40,28,0.78) 40%, rgba(25,40,28,0.65) 100%)',
+        background: 'linear-gradient(to bottom, rgba(25,40,28,0.88) 40%, rgba(25,40,28,0.65) 100%)',
         pointerEvents: 'none',
       }} />
       <div style={{ position: 'relative', zIndex: 1 }}>

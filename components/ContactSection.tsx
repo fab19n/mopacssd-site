@@ -156,7 +156,7 @@ export default function ContactSection() {
               <input name="name" type="text" required placeholder="Dato' Ahmad bin Abdullah" style={inputStyle} />
             </label>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+            <div className="form-row-grid">
               <label style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
                 <span style={labelStyle}>Email *</span>
                 <input name="email" type="email" required placeholder="email@example.com" style={inputStyle} />
@@ -167,7 +167,7 @@ export default function ContactSection() {
               </label>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+            <div className="form-row-grid">
               <label style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
                 <span style={labelStyle}>Service of Interest</span>
                 <select name="service" style={inputStyle}>
