@@ -27,7 +27,10 @@ const spaceMono = Space_Mono({
 export const metadata: Metadata = {
   title: 'MOPACS — Plantation Advisory',
   description:
-    'Monarchs Oil Palm Plantation Consultancy. Specialised advisory advancing sustainability and operational excellence within the oil palm industry.',
+  'Monarchs Oil Palm Plantation Consultancy. Specialised advisory advancing sustainability and operational excellence within the oil palm industry.',
+  icons: {
+    icon: '/images/mopacs-logo.png',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
