@@ -46,12 +46,7 @@ export default function AboutValueProps() {
       </h2>
 
       {/* 3-col cards */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(3,1fr)',
-        gap: 20,
-        marginBottom: 32,
-      }}>
+      <div className="about-vp-grid">
         {valueProps.map(({ n, heading, body }) => (
           <div
             key={n}

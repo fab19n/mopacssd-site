@@ -16,13 +16,7 @@ export default function AboutStory() {
       padding: '64px clamp(24px,5vw,80px) 84px',
     }}>
       {/* Two-column: text | image */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        gap: 'clamp(32px,6vw,80px)',
-        alignItems: 'start',
-        marginBottom: 56,
-      }}>
+      <div className="about-story-grid">
         {/* Text */}
         <div>
           <p style={{
@@ -99,13 +93,7 @@ export default function AboutStory() {
       </div>
 
       {/* Credentials strip */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(3,1fr)',
-        gap: 32,
-        paddingTop: 48,
-        borderTop: '1px solid rgba(25,40,28,0.12)',
-      }}>
+      <div className="about-creds-grid">
         {credentials.map(({ value, caption }) => (
           <div key={value}>
             <div style={{

@@ -26,14 +26,7 @@ export default function SiteFooter() {
       padding: '52px clamp(24px,5vw,80px) 28px',
     }}>
       {/* 3-col grid */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: '1.6fr 1fr 1fr',
-        gap: 60,
-        paddingBottom: 36,
-        borderBottom: '1px solid rgba(204,216,192,0.16)',
-        marginBottom: 24,
-      }}>
+      <div className="footer-main-grid">
         {/* Brand */}
         <div>
           <p style={{
@@ -123,7 +116,7 @@ export default function SiteFooter() {
       </div>
 
       {/* Bottom bar */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div className="footer-bottom-bar">
         <p style={{
           fontFamily: "'DM Sans', sans-serif",
           fontSize: 12, color: 'rgba(255,255,249,0.5)',

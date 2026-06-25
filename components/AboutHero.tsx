@@ -17,14 +17,14 @@ export default function AboutHero() {
         style={{
           position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
           width: '100%', height: '100%',
-          objectFit: 'cover', opacity: 0.38,
+          objectFit: 'cover', opacity: 0.45,
           pointerEvents: 'none',
         }}
       />
       {/* Gradient overlay */}
       <div style={{
         position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-        background: 'linear-gradient(135deg, rgba(25,40,28,0.78) 40%, rgba(25,40,28,0.55) 100%)',
+        background: 'linear-gradient(135deg, rgba(25,40,28,0.72) 40%, rgba(25,40,28,0.38) 100%)',
         pointerEvents: 'none',
       }} />
 
