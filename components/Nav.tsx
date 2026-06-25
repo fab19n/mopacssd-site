@@ -31,7 +31,7 @@ export default function Nav() {
           <img
             src="/images/mopacs-logo.png"
             alt="MOPACS"
-            style={{ height: 40, width: 40, flexShrink: 0 }}
+            style={{ height: 57, width: 57, flexShrink: 0 }}
           />
           <div>
             <span style={{

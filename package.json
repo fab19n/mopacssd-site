@@ -24,11 +24,13 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   },
-  "packageManager": "pnpm@11.9.0",
+  "packageManager": "pnpm@10.5.2",
   "pnpm": {
     "onlyBuiltDependencies": [
       "sharp",
-      "unrs-resolver"
+      "sharp@0.34.5",
+      "unrs-resolver",
+      "unrs-resolver@1.12.2"
     ]
   }
 }
