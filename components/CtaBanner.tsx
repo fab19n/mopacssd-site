@@ -1,48 +1,63 @@
-import Container from '@/components/Container'
-import { IconBrandWhatsapp } from '@tabler/icons-react'
+// ─────────────────────────────────────────────────────────────────────────────
+// CtaBanner.tsx — Green CTA section used as the closing section on every page.
+// ─────────────────────────────────────────────────────────────────────────────
+import Link from 'next/link'
 
 export default function CtaBanner() {
   return (
-    <section id="contact" className="w-full py-[72px] md:py-[96px]" style={{ background: '#386035' }}>
-      <Container>
-        <div className="max-w-[760px] mx-auto text-center">
-
-          <h2
-            className="font-serif font-normal text-paper leading-[1.08] tracking-[-0.01em] mb-[18px] md:mb-[22px]"
-            style={{ fontSize: 'clamp(32px, 4vw, 56px)' }}
+    <section style={{
+      background: '#386035',
+      padding: '72px clamp(24px,5vw,80px) 96px',
+    }}>
+      <div style={{ maxWidth: 760, margin: '0 auto', textAlign: 'center' }}>
+        <h2 style={{
+          fontFamily: "'Newsreader', Georgia, serif",
+          fontWeight: 400, color: '#fffff9',
+          lineHeight: 1.08, letterSpacing: '-0.01em',
+          fontSize: 'clamp(32px,4vw,56px)',
+          marginBottom: 20,
+        }}>
+          Let&apos;s grow something that lasts.
+        </h2>
+        <p style={{
+          fontFamily: "'DM Sans', sans-serif",
+          fontSize: 'clamp(15px,1.1vw,18px)', lineHeight: 1.65,
+          color: '#ccd8c0', maxWidth: '46ch',
+          margin: '0 auto 32px',
+        }}>
+          Engage with us to align your operations with best practice — and turn sustainability
+          into a strategy for growth.
+        </p>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: 14, flexWrap: 'wrap' }}>
+          <Link
+            href="/contact"
+            style={{
+              display: 'inline-block',
+              background: '#EFBF04', color: '#19281c',
+              fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 14,
+              padding: '15px 30px', borderRadius: 9999,
+              textDecoration: 'none', whiteSpace: 'nowrap',
+            }}
           >
-            Let&apos;s grow something that lasts.
-          </h2>
-
-          <p
-            className="font-sans text-[16px] md:text-[18px] leading-[1.65] text-mist mx-auto mb-[28px] md:mb-[36px]"
-            style={{ maxWidth: '46ch' }}
+            Start the conversation →
+          </Link>
+          <a
+            href="https://wa.me/60199155101"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-block',
+              background: 'transparent', color: '#fffff9',
+              fontFamily: "'DM Sans', sans-serif", fontWeight: 500, fontSize: 14,
+              padding: '14px 28px', borderRadius: 9999,
+              border: '1px solid rgba(255,255,249,0.4)',
+              textDecoration: 'none', whiteSpace: 'nowrap',
+            }}
           >
-            Engage with us to align your operations with best practice — and
-            turn sustainability into a strategy for growth.
-          </p>
-
-          <div className="flex justify-center gap-[14px] flex-wrap">
-            <a
-              href="mailto:shafieqlive@gmail.com"
-              className="inline-block bg-gold text-forest font-sans font-bold text-[14px] px-[30px] py-[15px] rounded-full whitespace-nowrap hover:brightness-95 transition-all duration-[180ms]"
-            >
-              Start the conversation →
-            </a>
-            <a
-              href="https://wa.me/60199155101"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-[8px] font-sans font-medium text-[14px] text-paper px-[28px] py-[14px] rounded-full whitespace-nowrap transition-all duration-[180ms]"
-              style={{ border: '1px solid rgba(255,255,249,0.4)' }}
-            >
-              <IconBrandWhatsapp size={16} style={{ color: '#ccd8c0' }} />
-              WhatsApp Us
-            </a>
-          </div>
-
+            WhatsApp Us
+          </a>
         </div>
-      </Container>
+      </div>
     </section>
   )
 }

@@ -1,29 +1,43 @@
 import type { Metadata } from 'next'
+import { Newsreader, DM_Sans, Space_Mono } from 'next/font/google'
 import './globals.css'
 
-// NOTE: switch to next/font/google when building locally or deploying to Vercel —
-// Google Fonts is unreachable at build time in this sandbox environment.
-// next/font/google gives better LCP via self-hosting; the <link> tag below is
-// functionally equivalent and works in any environment at runtime.
+const newsreader = Newsreader({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  style: ['normal', 'italic'],
+  variable: '--font-newsreader',
+  display: 'swap',
+})
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-dm-sans',
+  display: 'swap',
+})
+
+const spaceMono = Space_Mono({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-space-mono',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
-  title: 'MOPACS — Oil Palm Plantation Advisory & Sustainability',
+  title: 'MOPACS — Plantation Advisory',
   description:
-    'Monarchs Oil Palm Plantation Consultancy — Sustainability, Conservation & Advisory Services for the Malaysian oil palm industry.',
+    'Monarchs Oil Palm Plantation Consultancy. Specialised advisory advancing sustainability and operational excellence within the oil palm industry.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Mono:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="font-sans antialiased">{children}</body>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${newsreader.variable} ${dmSans.variable} ${spaceMono.variable}`}
+    >
+      <body>{children}</body>
     </html>
   )
 }

@@ -1,103 +1,147 @@
 'use client'
-import Container from '@/components/Container'
-import { useState } from 'react'
+// Nav.tsx — Sticky top nav with active-state underlines and Contact pill.
+// Mobile hamburger menu added (handoff omitted mobile nav).
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { IconMenu2, IconX } from '@tabler/icons-react'
+import { useState } from 'react'
+
+const links = [
+  { label: 'About',    href: '/about'    },
+  { label: 'Services', href: '/services' },
+  { label: 'Pricing',  href: '/pricing'  },
+]
 
 export default function Nav() {
-  const [open, setOpen] = useState(false)
   const pathname = usePathname()
-  const isHome   = pathname === '/'
-
-  // About / Services always go to their pages.
-  // Pricing anchors on the homepage only; routes everywhere else.
-  // Contact always goes to the contact page.
-  const navLinks = [
-    { label: 'About',    href: '/about' },
-    { label: 'Services', href: '/services' },
-    { label: 'Pricing',  href: isHome ? '#pricing' : '/pricing' },
-  ]
-
-  const isActive = (href: string) => pathname === href
+  const [open, setOpen]   = useState(false)
 
   return (
-    <header className="w-full bg-paper border-b border-forest/12 relative z-50">
-      <Container className="flex items-center justify-between py-[26px]">
-
+    <header style={{
+      position: 'sticky', top: 0, zIndex: 50,
+      background: '#fffff9',
+      borderBottom: '1px solid rgba(25,40,28,0.12)',
+      width: '100%',
+    }}>
+      <div style={{
+        padding: '22px clamp(24px,5vw,80px)',
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+      }}>
         {/* Wordmark */}
-        <a href="/" className="no-underline">
-          <span className="block font-serif text-[22px] font-semibold text-forest leading-none tracking-[-0.01em]">
+        <Link href="/" style={{ textDecoration: 'none' }}>
+          <span style={{
+            display: 'block',
+            fontFamily: "'Newsreader', Georgia, serif",
+            fontSize: 22, fontWeight: 600, color: '#19281c',
+            lineHeight: 1, letterSpacing: '-0.01em',
+          }}>
             MOPACS
           </span>
-          <span className="block font-mono text-[8px] tracking-[0.18em] uppercase text-sage mt-1">
+          <span style={{
+            display: 'block',
+            fontFamily: "'Space Mono', monospace",
+            fontSize: 8, letterSpacing: '0.18em',
+            textTransform: 'uppercase', color: '#799252',
+            marginTop: 4,
+          }}>
             Plantation Advisory
           </span>
-        </a>
+        </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden sm:flex items-center gap-[26px]">
-          {navLinks.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              className={`text-[13px] font-medium no-underline transition-colors duration-[180ms] ${
-                isActive(l.href)
-                  ? 'text-green underline underline-offset-[5px] decoration-1 decoration-green/60'
-                  : 'text-forest hover:text-green'
-              }`}
-            >
-              {l.label}
-            </a>
-          ))}
-          <a
+        <nav className="hidden sm:flex" style={{ alignItems: 'center', gap: 26 }}>
+          {links.map(({ label, href }) => {
+            const active = pathname === href
+            return (
+              <Link
+                key={href}
+                href={href}
+                style={{
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontSize: 13, fontWeight: 500,
+                  color: active ? '#386035' : '#19281c',
+                  textDecoration: active ? 'underline' : 'none',
+                  textDecorationColor: 'rgba(56,96,53,0.5)',
+                  textUnderlineOffset: 5,
+                }}
+              >
+                {label}
+              </Link>
+            )
+          })}
+
+          {/* Contact pill */}
+          <Link
             href="/contact"
-            className={`text-[13px] font-medium no-underline px-[20px] py-[10px] rounded-full border transition-all duration-[180ms] ${
-              isActive('/contact')
-                ? 'bg-forest text-paper border-forest'
-                : 'text-forest border-forest hover:bg-forest hover:text-paper'
-            }`}
+            style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: 13, fontWeight: 500,
+              color: pathname === '/contact' ? '#fffff9' : '#19281c',
+              background: pathname === '/contact' ? '#19281c' : 'transparent',
+              border: '1px solid #19281c',
+              borderRadius: 9999,
+              padding: '9px 20px',
+              textDecoration: 'none',
+              whiteSpace: 'nowrap',
+            }}
           >
             Contact
-          </a>
+          </Link>
         </nav>
 
-        {/* Mobile toggle */}
+        {/* Mobile hamburger */}
         <button
-          className="sm:hidden p-2 -mr-2 text-forest"
+          className="sm:hidden"
           onClick={() => setOpen(!open)}
           aria-label="Toggle navigation"
+          style={{
+            background: 'none', border: 'none',
+            cursor: 'pointer', padding: 4,
+            fontFamily: "'Space Mono', monospace",
+            fontSize: 18, color: '#19281c', lineHeight: 1,
+          }}
         >
-          {open ? <IconX size={22} /> : <IconMenu2 size={22} />}
+          {open ? '✕' : '☰'}
         </button>
-      </Container>
+      </div>
 
       {/* Mobile dropdown */}
       {open && (
         <div
-          className="sm:hidden bg-paper border-t border-forest/12 py-6 flex flex-col gap-5"
-          style={{ paddingLeft: 'clamp(24px,5vw,80px)', paddingRight: 'clamp(24px,5vw,80px)' }}
+          className="sm:hidden"
+          style={{
+            borderTop: '1px solid rgba(25,40,28,0.1)',
+            background: '#fffff9',
+            padding: '20px clamp(24px,5vw,80px) 24px',
+            display: 'flex', flexDirection: 'column', gap: 18,
+          }}
         >
-          {navLinks.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              className={`text-[15px] font-medium no-underline ${
-                isActive(l.href) ? 'text-green' : 'text-forest'
-              }`}
+          {links.map(({ label, href }) => (
+            <Link
+              key={href}
+              href={href}
               onClick={() => setOpen(false)}
+              style={{
+                fontFamily: "'DM Sans', sans-serif",
+                fontSize: 15, fontWeight: 500,
+                color: pathname === href ? '#386035' : '#19281c',
+                textDecoration: 'none',
+              }}
             >
-              {l.label}
-            </a>
+              {label}
+            </Link>
           ))}
-          <a
+          <Link
             href="/contact"
-            className={`text-[15px] font-medium no-underline ${
-              isActive('/contact') ? 'text-green' : 'text-forest'
-            }`}
             onClick={() => setOpen(false)}
+            style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: 15, fontWeight: 500,
+              color: pathname === '/contact' ? '#386035' : '#19281c',
+              textDecoration: 'none',
+            }}
           >
             Contact
-          </a>
+          </Link>
         </div>
       )}
     </header>
