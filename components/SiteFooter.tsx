@@ -31,7 +31,7 @@ export default function SiteFooter() {
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
             <img
-              src="/images/mopacs-logo-transparent.png"
+              src="/images/mopacs-logo.png"
               alt="MOPACS"
               style={{ height: 52, width: 52, flexShrink: 0 }}
             />

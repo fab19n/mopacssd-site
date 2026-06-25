@@ -29,7 +29,7 @@ export default function Nav() {
         {/* Wordmark */}
         <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 10 }}>
           <img
-            src="/images/mopacs-logo-transparent.png"
+            src="/images/mopacs-logo.png"
             alt="MOPACS"
             style={{ height: 40, width: 40, flexShrink: 0 }}
           />
