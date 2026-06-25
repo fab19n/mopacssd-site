@@ -1,72 +1,121 @@
-import Container from '@/components/Container'
+// ─────────────────────────────────────────────────────────────────────────────
+// AboutValueProps.tsx — "Why MOPACS" on dark bg + wildlife photo banner.
+// Image: public/images/wildlife-plantation.avif
+// ─────────────────────────────────────────────────────────────────────────────
 
 const valueProps = [
   {
-    n:       '01',
+    n: '01',
     heading: 'Expert guidance that pays for itself.',
-    body:    'The cost of MOPACS services represents only a small fraction of the potential savings and improvements achievable through expert guidance. Our engagements are structured to deliver measurable results from the first visit.',
+    body: 'The cost of MOPACS services represents only a small fraction of the potential savings achievable through expert guidance. Our engagements deliver measurable results from the first visit.',
   },
   {
-    n:       '02',
+    n: '02',
     heading: 'Transparent and value-for-money.',
-    body:    'A transparent approach ensures you receive measurable benefits and sustainable improvements — with clear documentation and paper trails meticulously maintained and provided throughout every engagement.',
+    body: 'A transparent approach ensures measurable benefits and sustainable improvements — with clear documentation and paper trails provided throughout every engagement.',
   },
   {
-    n:       '03',
+    n: '03',
     heading: 'Open engagement. No hidden manoeuvring.',
-    body:    'Engaging openly and directly with clients prevents costly mistakes and keeps your operations aligned with best practice — building the trust and consistency that long-term relationships are built on.',
+    body: 'Engaging openly and directly with clients prevents costly mistakes and keeps your operations aligned with best practice — building the trust that long-term relationships depend on.',
   },
 ]
 
 export default function AboutValueProps() {
   return (
-    <section className="w-full bg-forest py-[64px] md:py-[84px]">
-      <Container>
+    <section style={{
+      background: '#19281c',
+      padding: '64px clamp(24px,5vw,80px) 84px',
+    }}>
+      <p style={{
+        fontFamily: "'Space Mono', monospace",
+        fontSize: 11, letterSpacing: '0.18em',
+        textTransform: 'uppercase', color: '#EFBF04',
+        marginBottom: 14,
+      }}>
+        Why MOPACS
+      </p>
+      <h2 style={{
+        fontFamily: "'Newsreader', Georgia, serif",
+        fontWeight: 400, color: '#fffff9',
+        lineHeight: 1.1, letterSpacing: '-0.01em',
+        fontSize: 'clamp(28px,3vw,42px)',
+        marginBottom: 48,
+      }}>
+        The case for working with us.
+      </h2>
 
-        {/* Header */}
-        <div className="mb-[44px] md:mb-[56px]">
-          <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-gold mb-[14px]">
-            Why MOPACS
-          </p>
-          <h2
-            className="font-serif font-normal text-paper leading-[1.1] tracking-[-0.01em]"
-            style={{ fontSize: 'clamp(28px, 3vw, 42px)' }}
+      {/* 3-col cards */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(3,1fr)',
+        gap: 20,
+        marginBottom: 32,
+      }}>
+        {valueProps.map(({ n, heading, body }) => (
+          <div
+            key={n}
+            style={{
+              display: 'flex', flexDirection: 'column', gap: 18,
+              padding: 'clamp(24px,2.5vw,36px)',
+              borderRadius: 10,
+              background: 'rgba(255,255,249,0.05)',
+              border: '1px solid rgba(204,216,192,0.18)',
+            }}
           >
-            The case for working with us.
-          </h2>
-        </div>
+            <span style={{
+              fontFamily: "'Space Mono', monospace",
+              fontSize: 14, letterSpacing: '0.14em', color: '#EFBF04',
+            }}>
+              {n}
+            </span>
+            <h3 style={{
+              fontFamily: "'Newsreader', Georgia, serif",
+              fontWeight: 500, color: '#fffff9',
+              lineHeight: 1.2, letterSpacing: '-0.01em',
+              fontSize: 'clamp(16px,1.3vw,20px)',
+            }}>
+              {heading}
+            </h3>
+            <p style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: 14, lineHeight: 1.7,
+              color: 'rgba(204,216,192,0.78)',
+            }}>
+              {body}
+            </p>
+          </div>
+        ))}
+      </div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-          {valueProps.map((p) => (
-            <div
-              key={p.n}
-              className="flex flex-col gap-[18px] p-[28px] md:p-[36px] rounded-[10px]"
-              style={{
-                background: 'rgba(255,255,249,0.05)',
-                border:     '1px solid rgba(204,216,192,0.18)',
-              }}
-            >
-              <span className="font-mono text-[14px] tracking-[0.14em] text-gold">
-                {p.n}
-              </span>
-              <h3
-                className="font-serif font-medium text-paper leading-[1.2] tracking-[-0.01em]"
-                style={{ fontSize: 'clamp(17px, 1.4vw, 20px)' }}
-              >
-                {p.heading}
-              </h3>
-              <p
-                className="font-sans text-[14px] md:text-[15px] leading-[1.7]"
-                style={{ color: 'rgba(204,216,192,0.78)' }}
-              >
-                {p.body}
-              </p>
-            </div>
-          ))}
+      {/* Wildlife photo banner */}
+      <div style={{ borderRadius: 8, overflow: 'hidden', height: 'clamp(200px,22vw,280px)', position: 'relative' }}>
+        <img
+          src="/images/wildlife-plantation.avif"
+          alt="Wildlife coexistence in oil palm plantation"
+          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 55%' }}
+        />
+        <div style={{
+          position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
+          background: 'linear-gradient(to right, rgba(25,40,28,0.65) 0%, transparent 55%)',
+        }} />
+        <div style={{ position: 'absolute', bottom: 20, left: 24 }}>
+          <p style={{
+            fontFamily: "'Space Mono', monospace",
+            fontSize: 10, letterSpacing: '0.12em',
+            textTransform: 'uppercase',
+            color: 'rgba(204,216,192,0.9)', marginBottom: 4,
+          }}>
+            Biodiversity &amp; Community Harmony
+          </p>
+          <p style={{
+            fontFamily: "'DM Sans', sans-serif",
+            fontSize: 13, color: 'rgba(204,216,192,0.7)',
+          }}>
+            Minimising wildlife and human conflict across plantation landscapes.
+          </p>
         </div>
-
-      </Container>
+      </div>
     </section>
   )
 }

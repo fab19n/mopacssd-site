@@ -1,28 +1,53 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   globals.css — Replace existing file with this.
+   Keeps existing color tokens, adds font-family utilities.
+───────────────────────────────────────────────────────────────────────────── */
 @import "tailwindcss";
 
 @theme {
+  /* ── Color tokens ── */
   --color-forest: #19281c;
   --color-green:  #386035;
   --color-sage:   #799252;
   --color-mist:   #ccd8c0;
   --color-paper:  #fffff9;
   --color-gold:   #EFBF04;
-  --color-stone:  #e7e5df;
+
+  /* ── Font families (injected by next/font via CSS variables) ── */
+  --font-family-serif:  var(--font-newsreader), Georgia, serif;
+  --font-family-sans:   var(--font-dm-sans), system-ui, sans-serif;
+  --font-family-mono:   var(--font-space-mono), 'Courier New', monospace;
 }
 
-@theme inline {
-  /* Font stacks — referenced by font-serif / font-sans / font-mono utilities */
-  --font-serif: 'Newsreader', Georgia, serif;
-  --font-sans:  'DM Sans', system-ui, sans-serif;
-  --font-mono:  'Space Mono', monospace;
-}
+/* ── Base resets ── */
+*, *::before, *::after { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
 
-::selection { background: #EFBF04; color: #19281c; }
-
 body {
-  background-color: #fffff9;
-  color: #19281c;
+  background:  #fffff9;
+  color:       #19281c;
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+  margin: 0;
+}
+
+::selection {
+  background: #EFBF04;
+  color:      #19281c;
+}
+
+img   { display: block; }
+button { font-family: inherit; }
+
+/* ── Responsive grid overrides ── */
+/* ContactSection 2-col → stack on mobile */
+.contact-section-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 767px) {
+  .contact-section-grid {
+    grid-template-columns: 1fr;
+  }
 }

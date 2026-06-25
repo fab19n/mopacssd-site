@@ -1,6 +1,5 @@
 import Nav        from '@/components/Nav'
 import Hero       from '@/components/Hero'
-import HeroImage  from '@/components/HeroImage'
 import Stats      from '@/components/Stats'
 import About      from '@/components/About'
 import CoreValues from '@/components/CoreValues'
@@ -14,7 +13,6 @@ export default function Home() {
     <main>
       <Nav />
       <Hero />
-      <HeroImage />
       <Stats />
       <About />
       <CoreValues />
