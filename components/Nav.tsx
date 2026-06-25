@@ -27,24 +27,31 @@ export default function Nav() {
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       }}>
         {/* Wordmark */}
-        <Link href="/" style={{ textDecoration: 'none' }}>
-          <span style={{
-            display: 'block',
-            fontFamily: "'Newsreader', Georgia, serif",
-            fontSize: 22, fontWeight: 600, color: '#19281c',
-            lineHeight: 1, letterSpacing: '-0.01em',
-          }}>
-            MOPACS
-          </span>
-          <span style={{
-            display: 'block',
-            fontFamily: "'Space Mono', monospace",
-            fontSize: 8, letterSpacing: '0.18em',
-            textTransform: 'uppercase', color: '#799252',
-            marginTop: 4,
-          }}>
-            Plantation Advisory
-          </span>
+        <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 10 }}>
+          <img
+            src="/images/mopacs-logo.png"
+            alt="MOPACS"
+            style={{ height: 40, width: 40, flexShrink: 0 }}
+          />
+          <div>
+            <span style={{
+              display: 'block',
+              fontFamily: "'Newsreader', Georgia, serif",
+              fontSize: 22, fontWeight: 600, color: '#19281c',
+              lineHeight: 1, letterSpacing: '-0.01em',
+            }}>
+              MOPACS
+            </span>
+            <span style={{
+              display: 'block',
+              fontFamily: "'Space Mono', monospace",
+              fontSize: 8, letterSpacing: '0.18em',
+              textTransform: 'uppercase', color: '#799252',
+              marginTop: 4,
+            }}>
+              Plantation Advisory
+            </span>
+          </div>
         </Link>
 
         {/* Desktop nav */}
