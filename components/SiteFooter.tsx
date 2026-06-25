@@ -29,21 +29,29 @@ export default function SiteFooter() {
       <div className="footer-main-grid">
         {/* Brand */}
         <div>
-          <p style={{
-            fontFamily: "'Newsreader', Georgia, serif",
-            fontSize: 26, fontWeight: 600, color: '#fffff9',
-            lineHeight: 1, marginBottom: 6,
-          }}>
-            MOPACS
-          </p>
-          <p style={{
-            fontFamily: "'DM Sans', sans-serif",
-            fontSize: 13, color: '#ccd8c0',
-            lineHeight: 1.5, marginBottom: 14,
-          }}>
-            Monarchs Oil Palm Plantation Consultancy,<br />
-            Sustainability &amp; Conservation Advisory Services
-          </p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
+            <img
+              src="/images/mopacs-logo.png"
+              alt="MOPACS"
+              style={{ height: 52, width: 52, flexShrink: 0 }}
+            />
+            <div>
+              <p style={{
+                fontFamily: "'Newsreader', Georgia, serif",
+                fontSize: 26, fontWeight: 600, color: '#fffff9',
+                lineHeight: 1, marginBottom: 4,
+              }}>
+                MOPACS
+              </p>
+              <p style={{
+                fontFamily: "'DM Sans', sans-serif",
+                fontSize: 11, color: 'rgba(204,216,192,0.6)',
+                lineHeight: 1.4,
+              }}>
+                Monarchs Oil Palm Plantation Consultancy
+              </p>
+            </div>
+          </div>
           <p style={{
             fontFamily: "'DM Sans', sans-serif",
             fontSize: 14, lineHeight: 1.7,
