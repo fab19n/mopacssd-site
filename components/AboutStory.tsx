@@ -1,99 +1,119 @@
-import Container from '@/components/Container'
+// ─────────────────────────────────────────────────────────────────────────────
+// AboutStory.tsx — Mission text + palm trunk image side-by-side, credentials strip.
+// Image: public/images/palm-trunk.avif
+// ─────────────────────────────────────────────────────────────────────────────
 
 const credentials = [
-  {
-    label: 'ESG',
-    sub:   'Integrated into every client engagement',
-  },
-  {
-    label: 'MSPO',
-    sub:   'Internal audit readiness and compliance support',
-  },
-  {
-    label: '1–5 days',
-    sub:   'Flexible man-day engagement model',
-  },
+  { value: 'ESG',      caption: 'Integrated into every client engagement' },
+  { value: 'MSPO',     caption: 'Internal audit readiness and compliance support' },
+  { value: '1–5 days', caption: 'Flexible man-day engagement model' },
 ]
 
 export default function AboutStory() {
   return (
-    <section className="w-full bg-paper py-[64px] md:py-[84px]">
-      <Container>
-
-        {/* Asymmetric 2-col — mirrors homepage About layout */}
-        <div className="grid grid-cols-1 md:grid-cols-[0.8fr_1.2fr] gap-10 md:gap-[80px] items-start">
-
-          {/* Left */}
-          <div>
-            <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-sage mb-[14px]">
-              Our Mission
-            </p>
-            <h2
-              className="font-serif font-normal text-forest leading-[1.12] tracking-[-0.01em]"
-              style={{ fontSize: 'clamp(26px, 2.8vw, 38px)' }}
-            >
-              Sustainability isn&apos;t just compliance — it&apos;s a strategy for growth and co-existence.
-            </h2>
-          </div>
-
-          {/* Right */}
-          <div className="space-y-[20px]">
-            <p
-              className="font-sans text-[16px] md:text-[17px] leading-[1.75]"
-              style={{ color: 'rgba(25,40,28,0.82)' }}
-            >
-              MOPACS is a specialised advisory and support firm committed to advancing
-              sustainability and operational excellence within the oil palm industry. Built on
-              deep agricultural expertise and modern industry insight, we assist plantations
-              in achieving long-term productivity while upholding responsible and ethical
-              practices.
-            </p>
-            <p
-              className="font-sans text-[16px] md:text-[17px] leading-[1.75]"
-              style={{ color: 'rgba(25,40,28,0.82)' }}
-            >
-              Our work spans plantation rehabilitation and soil improvement, talent
-              development, and data-driven management — giving plantation owners and
-              operators the tools to perform at their best while contributing meaningfully
-              to conservation.
-            </p>
-            <p
-              className="font-sans text-[16px] md:text-[17px] leading-[1.75]"
-              style={{ color: 'rgba(25,40,28,0.82)' }}
-            >
-              We help plantations reduce environmental impact, raise operational standards,
-              and remain competitive in a rapidly evolving global market — where ESG
-              credentials and MSPO compliance are becoming foundational requirements,
-              not optional extras.
-            </p>
-          </div>
-
+    <section style={{
+      background: '#fffff9',
+      padding: '64px clamp(24px,5vw,80px) 84px',
+    }}>
+      {/* Two-column: text | image */}
+      <div className="about-story-grid">
+        {/* Text */}
+        <div>
+          <p style={{
+            fontFamily: "'Space Mono', monospace",
+            fontSize: 11, letterSpacing: '0.18em',
+            textTransform: 'uppercase', color: '#799252',
+            marginBottom: 14,
+          }}>
+            Our Mission
+          </p>
+          <h2 style={{
+            fontFamily: "'Newsreader', Georgia, serif",
+            fontWeight: 400, color: '#19281c',
+            lineHeight: 1.12, letterSpacing: '-0.01em',
+            fontSize: 'clamp(24px,2.6vw,36px)',
+            marginBottom: 24,
+          }}>
+            Sustainability isn&apos;t just compliance — it&apos;s a strategy for growth and co-existence.
+          </h2>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 'clamp(14px,1.1vw,17px)', lineHeight: 1.75, color: 'rgba(25,40,28,0.82)', marginBottom: 18 }}>
+            MOPACS is a specialised advisory and support firm committed to advancing sustainability
+            and operational excellence within the oil palm industry. Built on deep agricultural
+            expertise and modern industry insight, we assist plantations in achieving long-term
+            productivity while upholding responsible and ethical practices.
+          </p>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 'clamp(14px,1.1vw,17px)', lineHeight: 1.75, color: 'rgba(25,40,28,0.82)', marginBottom: 18 }}>
+            Our work spans plantation rehabilitation and soil improvement, talent development,
+            and data-driven management — giving plantation owners the tools to perform at their
+            best while contributing meaningfully to conservation.
+          </p>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 'clamp(14px,1.1vw,17px)', lineHeight: 1.75, color: 'rgba(25,40,28,0.82)' }}>
+            We help plantations reduce environmental impact, raise operational standards, and
+            remain competitive — where ESG credentials and MSPO compliance are becoming
+            foundational requirements, not optional extras.
+          </p>
         </div>
 
-        {/* Credentials strip */}
-        <div
-          className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-[56px] md:mt-[72px] pt-[40px] md:pt-[52px]"
-          style={{ borderTop: '1px solid rgba(25,40,28,0.12)' }}
-        >
-          {credentials.map((c) => (
-            <div key={c.label}>
-              <div
-                className="font-serif font-normal text-forest leading-[1]"
-                style={{ fontSize: 'clamp(36px, 3.5vw, 52px)' }}
-              >
-                {c.label}
-              </div>
-              <p
-                className="font-sans text-[13px] md:text-[14px] mt-[10px] leading-[1.55]"
-                style={{ color: 'rgba(25,40,28,0.6)' }}
-              >
-                {c.sub}
-              </p>
+        {/* Image */}
+        <div style={{ position: 'relative' }}>
+          <div style={{
+            height: 'clamp(380px,42vw,540px)',
+            overflow: 'hidden', borderRadius: 4,
+            position: 'relative',
+          }}>
+            <img
+              src="/images/palm-trunk.avif"
+              alt="Oil palm trunk looking upward"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
+            />
+            {/* Bottom gradient */}
+            <div style={{
+              position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
+              background: 'linear-gradient(to top, rgba(25,40,28,0.35) 0%, transparent 40%)',
+            }} />
+            {/* Est. badge */}
+            <div style={{
+              position: 'absolute', bottom: 16, right: 16,
+              background: '#EFBF04',
+              width: 72, height: 72, borderRadius: '50%',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              flexDirection: 'column',
+            }}>
+              <span style={{
+                fontFamily: "'Space Mono', monospace",
+                fontSize: 7, letterSpacing: '0.1em',
+                textTransform: 'uppercase', color: '#19281c',
+                textAlign: 'center', lineHeight: 1.5,
+              }}>
+                Est.<br />2024
+              </span>
             </div>
-          ))}
+          </div>
         </div>
+      </div>
 
-      </Container>
+      {/* Credentials strip */}
+      <div className="about-creds-grid">
+        {credentials.map(({ value, caption }) => (
+          <div key={value}>
+            <div style={{
+              fontFamily: "'Newsreader', Georgia, serif",
+              fontWeight: 400,
+              fontSize: 'clamp(34px,3.5vw,52px)',
+              color: '#19281c', lineHeight: 1, marginBottom: 10,
+            }}>
+              {value}
+            </div>
+            <p style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: 13, lineHeight: 1.55,
+              color: 'rgba(25,40,28,0.6)',
+            }}>
+              {caption}
+            </p>
+          </div>
+        ))}
+      </div>
     </section>
   )
 }
