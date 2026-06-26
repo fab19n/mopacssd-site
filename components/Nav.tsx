@@ -130,7 +130,7 @@ export default function Nav() {
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize: 15, fontWeight: 500,
-                color: pathname === href ? '#386035' : '#19281c',
+                color: pathname === href ? '#EFBF04' : '#19281c',
                 textDecoration: 'none',
               }}
             >
@@ -143,7 +143,7 @@ export default function Nav() {
             style={{
               fontFamily: "'DM Sans', sans-serif",
               fontSize: 15, fontWeight: 500,
-              color: pathname === '/contact' ? '#386035' : '#19281c',
+              color: pathname === '/contact' ? '#EFBF04' : '#19281c',
               textDecoration: 'none',
             }}
           >
