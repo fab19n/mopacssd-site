@@ -79,7 +79,7 @@ export default function ContactSection() {
           {[
             { label: '+60 19 915 5101',        href: 'tel:+60199155101' },
             { label: '+60 19 672 2020',         href: 'tel:+60196722020' },
-            { label: 'shafieqlive@gmail.com',   href: 'mailto:shafieqlive@gmail.com' },
+            { label: 'shafieq@mopacssb.com',   href: 'mailto:shafieq@mopacssb.com' },
           ].map(({ label, href }) => (
             <a
               key={href}

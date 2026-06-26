@@ -14,7 +14,7 @@ const navLinks = [
 const contactLinks = [
   { label: '+60 19 915 5101', href: 'tel:+60199155101'          },
   { label: '+60 19 672 2020', href: 'tel:+60196722020'          },
-  { label: 'shafieqlive@gmail.com', href: 'mailto:shafieqlive@gmail.com' },
+  { label: 'shafieq@mopacssb.com', href: 'mailto:shafieq@mopacssb.com' },
   { label: 'WhatsApp Us',     href: 'https://wa.me/60199155101' },
 ]
 
@@ -60,6 +60,15 @@ export default function SiteFooter() {
             Specialised advisory firm committed to advancing sustainability and operational
             excellence within the oil palm industry.
           </p>
+          <p style={{
+            fontFamily: "'DM Sans', sans-serif",
+            fontSize: 13, color: 'rgba(204,216,192,0.65)',
+            lineHeight: 1.6, marginBottom: 16,
+          }}>
+            <br />JC 1866, 1st Floor, Jalan Bestari 5,<br />
+            Bandar Jasin Bestari,<br />
+            77200 Bemban, Melaka
+          </p>          
         </div>
 
         {/* Navigation */}
