@@ -55,8 +55,11 @@ export default function CoreValues({ values = defaultValues }: Props) {
               grid-cols-[40px_1fr] md:grid-cols-[60px_1fr_1.4fr]
             `}
             style={{
-              borderTop: '1px solid rgba(25,40,28,0.12)',
-              borderBottom: i === values.length - 1 ? '1px solid rgba(25,40,28,0.12)' : undefined,
+              background: 'rgba(25,40,28,0.03)',
+              border: '1px solid rgba(204,216,192,0.18)',
+              borderRadius: 10,
+              padding: '24px',
+              marginBottom: 8,
             }}
           >
             {/* Index */}

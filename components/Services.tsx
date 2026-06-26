@@ -87,8 +87,8 @@ export default function Services({ coreServicesBg = '#19281c' }: ServicesProps) 
               key={s.idx}
               className="flex flex-col gap-3 p-[28px] md:p-[45px] rounded-[10px]"
               style={{
-                background: coreServicesBg,
-                border: `3px solid ${divider}`,
+                background: 'rgba(255,255,249,0.05)',
+                border: `1px solid ${divider}`,
                 boxShadow: dark ? '3px 2px 12px rgba(0,0,0,0.25)' : '0 2px 10px rgba(25,40,28,0.08)',
               }}
             >
