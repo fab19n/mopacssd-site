@@ -52,11 +52,6 @@ button { font-family: inherit; }
   }
 }
 
-/* ── Mobile responsive grid fixes ──────────────────────────────────────────
-   Components use inline styles (no media query support), so all responsive
-   grid rules live here via className hooks.
-   ────────────────────────────────────────────────────────────────────────── */
-
 /* AboutStory — main 2-col layout */
 .about-story-grid {
   display: grid;
@@ -139,4 +134,13 @@ button { font-family: inherit; }
 }
 @media (max-width: 639px) {
   .form-row-grid { grid-template-columns: 1fr; }
+}
+
+#hero-scroll-driver {
+  height: 230vh;
+}
+@media (max-width: 767px) {
+  #hero-scroll-driver {
+    height: 150vh;
+  }
 }

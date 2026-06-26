@@ -1,8 +1,5 @@
 'use client'
 // ─────────────────────────────────────────────────────────────────────────────
-// Hero.tsx — Replaces BOTH the old Hero.tsx AND HeroImage.tsx.
-// Remove HeroImage from app/page.tsx entirely.
-//
 // Effect:
 //  - Hero text is sticky inside a 230vh scroll driver
 //  - As the user scrolls, the aerial plantation photo fades in full-bleed
@@ -87,7 +84,7 @@ export default function Hero() {
     <div
       id="hero-scroll-driver"
       ref={driverRef}
-      style={{ position: 'relative', height: '230vh' }}
+      style={{ position: 'relative' }}
     >
       {/* Sticky viewport */}
       <div style={{
@@ -103,7 +100,7 @@ export default function Hero() {
         >
           <img
             id="aerial-img"
-            src="/images/aerial-plantation.jpg"
+            src="/images/aerial-plantation.webp"
             alt="Aerial view of oil palm plantation, Sabah"
             style={{
               position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
