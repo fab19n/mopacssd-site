@@ -10,19 +10,19 @@ export default function PricingHero() {
       padding: '80px clamp(24px,5vw,80px) 104px',
     }}>
       <img
-        src="/images/palm-sky-bg.avif"
+        src="/images/about-hero-bg.avif"
         alt=""
         aria-hidden="true"
         style={{
           position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
           width: '100%', height: '100%',
-          objectFit: 'cover', opacity: 0.22,
+          objectFit: 'cover', opacity: 0.45,
           pointerEvents: 'none',
         }}
       />
       <div style={{
         position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-        background: 'linear-gradient(to bottom, rgba(25,40,28,0.88) 40%, rgba(25,40,28,0.65) 100%)',
+        background: 'linear-gradient(to bottom, rgba(25,40,28,0.72) 40%, rgba(25,40,28,0.65) 100%)',
         pointerEvents: 'none',
       }} />
       <div style={{ position: 'relative', zIndex: 1 }}>

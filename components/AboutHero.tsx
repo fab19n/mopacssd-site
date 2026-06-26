@@ -11,7 +11,7 @@ export default function AboutHero() {
     }}>
       {/* Background image */}
       <img
-        src="/images/about-hero-bg.avif"
+        src="/images/harvester-bunches.jfif"
         alt=""
         aria-hidden="true"
         style={{
