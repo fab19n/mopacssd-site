@@ -45,10 +45,22 @@ export default function ContactSection() {
 
       {/* ── Left: contact info ── */}
       <div style={{
+        position: 'relative', overflow: 'hidden',
         background: '#19281c',
         padding: '64px clamp(24px,4vw,56px) 84px clamp(24px,5vw,80px)',
         display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: 48,
       }}>
+        <img
+          src="/images/man-inspection.jfif"
+          alt=""
+          aria-hidden="true"
+          style={{
+            position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
+            width: '100%', height: '100%',
+            objectFit: 'cover', opacity: 0.10,
+            pointerEvents: 'none',
+          }}
+        />        
         <div>
           <p style={{
             fontFamily: "'Space Mono', monospace",

@@ -10,7 +10,7 @@ export default function ServicesHero() {
       padding: '80px clamp(24px,5vw,80px) 104px',
     }}>
       <img
-        src="/images/man-inspection.jfif"
+        src="/images/inspection-hill.jfif"
         alt=""
         aria-hidden="true"
         style={{
