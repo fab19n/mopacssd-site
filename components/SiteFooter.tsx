@@ -2,6 +2,7 @@
 // SiteFooter.tsx — 3-col footer: brand | nav | contact
 // ─────────────────────────────────────────────────────────────────────────────
 import Link from 'next/link'
+import WhatsAppPicker from './WhatsAppPicker'
 
 const navLinks = [
   { label: 'Home',                 href: '/'         },
@@ -12,10 +13,9 @@ const navLinks = [
 ]
 
 const contactLinks = [
-  { label: '+60 19 915 5101', href: 'tel:+60199155101'          },
-  { label: '+60 19 672 2020', href: 'tel:+60196722020'          },
+  { label: '+60 19 915 5101', href: 'tel:+60199155101' },
+  { label: '+60 19 672 2020', href: 'tel:+60196722020' },
   { label: 'shafieq@mopacssb.com', href: 'mailto:shafieq@mopacssb.com' },
-  { label: 'WhatsApp Us',     href: 'https://wa.me/60199155101' },
 ]
 
 export default function SiteFooter() {
@@ -129,6 +129,9 @@ export default function SiteFooter() {
               </a>
             ))}
           </div>
+            <div style={{ marginTop: 16 }}>
+              <WhatsAppPicker variant="dark" />
+            </div>          
         </div>
       </div>
 

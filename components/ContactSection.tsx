@@ -1,7 +1,7 @@
 'use client'
-// ContactSection.tsx — 2-col layout: dark left panel (info) | light right (form).
 // ACCESS_KEY reads from env var (set NEXT_PUBLIC_WEB3FORMS_KEY in .env.local)
 import { useState, FormEvent } from 'react'
+import WhatsAppPicker from './WhatsAppPicker'
 
 export default function ContactSection() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
@@ -98,27 +98,13 @@ export default function ContactSection() {
         </div>
 
         <div>
-          <a
-            href="https://wa.me/60199155101?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20MOPACS%20advisory%20services."
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: 'inline-flex', alignItems: 'center', gap: 10,
-              fontFamily: "'DM Sans', sans-serif",
-              fontSize: 14, fontWeight: 600,
-              color: '#19281c', background: '#EFBF04',
-              textDecoration: 'none',
-              padding: '13px 22px', borderRadius: 9999,
-            }}
-          >
-            ↗ Chat on WhatsApp
-          </a>
+          <WhatsAppPicker variant="light" />
           <p style={{
             fontFamily: "'DM Sans', sans-serif",
-            fontSize: 11, color: 'rgba(204,216,192,0.45)',
+            fontSize: 11, color: 'rgba(204,216,192,0.78)',
             marginTop: 10,
           }}>
-            Prefer messaging? Tap above to start a chat.
+            Prefer messaging? Tap above to choose a contact.
           </p>
         </div>
       </div>
