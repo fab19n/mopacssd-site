@@ -138,7 +138,7 @@ export default function SiteFooter() {
           fontFamily: "'DM Sans', sans-serif",
           fontSize: 12, color: 'rgba(255,255,249,0.5)',
         }}>
-          © 2025 MOPACS. All rights reserved.
+          © {new Date().getFullYear()} MOPACS. All rights reserved.
         </p>
         <p style={{
           fontFamily: "'DM Sans', sans-serif",
