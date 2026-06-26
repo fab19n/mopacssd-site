@@ -65,9 +65,9 @@ export default function Nav() {
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
                   fontSize: 13, fontWeight: 500,
-                  color: active ? '#386035' : '#19281c',
+                  color: active ? '#EFBF04' : '#19281c',
                   textDecoration: active ? 'underline' : 'none',
-                  textDecorationColor: 'rgba(56,96,53,0.5)',
+                  textDecorationColor: 'rgba(169, 137, 7, 0.72)',
                   textUnderlineOffset: 5,
                 }}
               >
